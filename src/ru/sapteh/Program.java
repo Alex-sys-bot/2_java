@@ -1,22 +1,41 @@
 package ru.sapteh;
 
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Program {
-    public static void main(String[] args)throws IOException {
+    public static void main(String[] args) {
 
-        BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Введите число: ");
-        String input = buffer.readLine();
+        int[] arr1 = new int[10];
+        int[] arr2 = new int[10];
+        int[] arr3 = new int[10];
+        int[] arr4 = new int[10];
+        int[] arr5 = new int[10];
 
-        int sum = 0;
-        for (int i = 0; i < input.length(); i++) {
-            char m = input.charAt(i);
-            sum = Character.getNumericValue(input.charAt(i))+sum;
+        MathRandom(arr1);
+        sArray(arr1);
+        MathRandom(arr2);
+        sArray(arr2);
+        MathRandom(arr3);
+        sArray(arr3);
+        MathRandom(arr4);
+        sArray(arr4);
+        MathRandom(arr5);
+        sArray(arr5);
+
+    }
+
+
+    public static void sArray(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            System.out.printf("%d ",arr[i]);
         }
-        System.out.println("Сумма всех чисел введенного числа равна "+ sum);
+        System.out.println(" ");
+    }
+
+    public static int[] MathRandom(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] += Math.random() * 10;
+        }
+        return arr;
     }
 }
