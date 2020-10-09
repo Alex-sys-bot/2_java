@@ -1,41 +1,43 @@
 package ru.sapteh;
 
-import java.util.Arrays;
 
 public class Program {
     public static void main(String[] args) {
+        int[][] arr1 = new int[6][7];
 
-        int[] arr1 = new int[10];
-        int[] arr2 = new int[10];
-        int[] arr3 = new int[10];
-        int[] arr4 = new int[10];
-        int[] arr5 = new int[10];
-
-        MathRandom(arr1);
-        sArray(arr1);
-        MathRandom(arr2);
-        sArray(arr2);
-        MathRandom(arr3);
-        sArray(arr3);
-        MathRandom(arr4);
-        sArray(arr4);
-        MathRandom(arr5);
-        sArray(arr5);
-
+        arraySort(arr1);
+        arr(arr1);
     }
 
 
-    public static void sArray(int[] arr){
+    public static void arraySort(int[][] arr) {
         for (int i = 0; i < arr.length; i++) {
-            System.out.printf("%d ",arr[i]);
+            for (int j = 0; j < arr[i].length; j++) {
+                arr[i][j] += Math.random() * 9;
+            }
         }
-        System.out.println(" ");
+
+        int maxValue = 0;
+            for (int i = arr.length - 1; i >= 0; i--) {
+                for (int j = 0; j < i; j++) {
+                    if (maxValue < arr[i][j]){
+                        maxValue = arr[i][j];
+                        arr[i][j] = maxValue;
+                    }
+                }
+                arr[i][0] = maxValue;
+            }
     }
 
-    public static int[] MathRandom(int[] arr) {
+    public static void arr(int[][]  arr){
         for (int i = 0; i < arr.length; i++) {
-            arr[i] += Math.random() * 10;
+            for (int j = 0; j < arr[i].length; j++) {
+                System.out.printf("%d ", arr[i][j]);
+            }
+            System.out.println();
+            }
         }
-        return arr;
     }
-}
+
+
+
